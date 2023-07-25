@@ -15,4 +15,12 @@
         </item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Travel.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Travel.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Travel.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
 </resources>
