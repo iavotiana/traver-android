@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:openDrawer="start"
     android:fitsSystemWindows="true"
-    tools:context=".view.ScrollingActivity">
+    tools:context=".view.HomeActivity"
+    android:id="@+id/drawerLayout"
+    >
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
-        android:fitsSystemWindows="true"
-        android:layout_height="@dimen/app_bar_height"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:theme="@style/Theme.Travel.AppBarOverlay">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            android:fitsSystemWindows="true"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
+            android:title="@color/colorPrimary"
+            android:titleTextColor="@color/colorPrimary"
+            android:background="@color/colorPrimary"
+            android:elevation="3dp"
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/frame"
             android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary">
+            />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/Theme.Travel.PopupOverlay" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_scrolling" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/hearder"
+        app:menu="@menu/menu_acceuil"
+        >
+    </com.google.android.material.navigation.NavigationView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

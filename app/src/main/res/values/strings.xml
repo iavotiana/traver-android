@@ -137,5 +137,25 @@
         FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Settings</string>
+
+    <string name="menu_connection">Se connecter</string>
+    <string name="menu_destination">Destination</string>
+    <string name="menu_hebergement">Hebergement</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+    <string name="title_activity_acceuil">AcceuilActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
