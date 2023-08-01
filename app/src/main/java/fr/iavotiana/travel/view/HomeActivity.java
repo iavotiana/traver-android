@@ -30,9 +30,20 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        if (savedInstanceState == null) {
+            // Add the default fragment when the activity is first created
+            Fragment defaultFragment = new AcceuilFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame, defaultFragment)
+                    .commit();
+        }
+
         toolbar = findViewById(R.id.toolbar);
         drawerLayout= findViewById(R.id.drawerLayout);
         navigation = findViewById(R.id.navigation);
+
+
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -41,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NotNull MenuItem item){
+
                 switch(item.getItemId()){
                     case R.id.menu_connection:
                         fragmentR(new ConnectionFragment());
@@ -55,6 +67,13 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(HomeActivity.this,"destination", Toast.LENGTH_SHORT).show();
 
                         break;
+
+                    default:
+                        fragmentR(new AcceuilFragment());
+                        drawerLayout.closeDrawer((GravityCompat.START));
+                        Toast.makeText(HomeActivity.this,"acceuil", Toast.LENGTH_SHORT).show();
+                        break;
+
                 }
                 return true;
             }
@@ -64,7 +83,16 @@ public class HomeActivity extends AppCompatActivity {
     private void fragmentR(Fragment fragment){
         FragmentManager fragmentManager= getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fragment);
+
+        // Hide the current fragment (if any)
+        Fragment currentFragment = fragmentManager.findFragmentById(R.id.frame);
+        if (currentFragment != null) {
+            fragmentTransaction.remove(currentFragment);
+        }
+
+        // Add the new fragment
+        fragmentTransaction.add(R.id.frame, fragment);
+
         fragmentTransaction.commit();
     }
 }
