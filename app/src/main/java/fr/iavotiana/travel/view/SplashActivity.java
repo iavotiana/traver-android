@@ -3,8 +3,12 @@ package fr.iavotiana.travel.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import fr.iavotiana.travel.R;
 public class SplashActivity extends AppCompatActivity {
@@ -19,4 +23,5 @@ public class SplashActivity extends AppCompatActivity {
             finish();
         }, 3000);
     }
+
 }

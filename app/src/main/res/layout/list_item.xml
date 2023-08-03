@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal" >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgList"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/aimer" />
+
+            <LinearLayout
+                android:layout_width="214dp"
+                android:layout_height="84dp"
+                android:layout_marginLeft="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="306dp"
+                    android:layout_height="wrap_content"
+                    android:text="Christopher"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Long text about this think"
+                    android:textColor="@color/black"
+
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/favori"
+                android:layout_width="89dp"
+                android:layout_height="85dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp"
+                android:padding="15dp"
+                android:text="8:35 pm" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

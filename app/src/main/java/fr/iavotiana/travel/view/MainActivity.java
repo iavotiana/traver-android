@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Veuillez verifier votre Saisie", Toast.LENGTH_SHORT).show();
             }
 
-
         });
     }
 

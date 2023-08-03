@@ -47,7 +47,7 @@
             android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_destination"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:text="Nos Destinations"
@@ -59,7 +59,7 @@
         android:layout_gravity="center_horizontal"
         />
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_hebergement"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Hebergement"
@@ -71,7 +71,7 @@
             android:layout_gravity="center_horizontal"
             />
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_activite"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Activite"
@@ -83,7 +83,7 @@
             android:layout_gravity="center_horizontal"
             />
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btn_transport"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Transport"

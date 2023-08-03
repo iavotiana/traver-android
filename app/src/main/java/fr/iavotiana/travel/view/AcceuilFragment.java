@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -48,6 +50,43 @@ public class AcceuilFragment extends Fragment {
         mediaController.setAnchorView(videoView);
        // videoView.setMediaController(mediaController);
 
+        Button destinationButton = view.findViewById(R.id.btn_destination);
+        destinationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DestinationFragment destinationFragment = new DestinationFragment();
+                switchFragment(destinationFragment);
+            }
+        });
+
+
+        Button hebergementButton = view.findViewById(R.id.btn_hebergement);
+        hebergementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HebergementFragment hebergementFragment = new HebergementFragment();
+                switchFragment(hebergementFragment);
+            }
+        });
+
+        Button activiteButton = view.findViewById(R.id.btn_activite);
+        activiteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActiviteFragment activiteFragment = new ActiviteFragment();
+                switchFragment(activiteFragment);
+            }
+        });
+
+        Button transportButton = view.findViewById(R.id.btn_transport);
+        transportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TransportFragment transportFragment = new TransportFragment();
+                switchFragment(transportFragment);
+            }
+        });
+
         return view;
     }
 
@@ -68,4 +107,12 @@ public class AcceuilFragment extends Fragment {
         super.onDestroyView();
         videoView.stopPlayback(); // Stop the video when the Fragment's view is destroyed
     }
+
+    public void switchFragment(Fragment secondFragment){
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, secondFragment);
+        transaction.addToBackStack(null); // Add to back stack for back navigation
+        transaction.commit();
+    }
+
 }

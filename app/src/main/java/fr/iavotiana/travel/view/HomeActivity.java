@@ -2,7 +2,6 @@ package fr.iavotiana.travel.view;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -57,21 +56,26 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.menu_connection:
                         fragmentR(new ConnectionFragment());
                         drawerLayout.closeDrawer((GravityCompat.START));
-                        Toast.makeText(HomeActivity.this,"connection", Toast.LENGTH_SHORT).show();
-
+                        //Toast.makeText(HomeActivity.this,"connection", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.menu_destination:
                         fragmentR(new DestinationFragment());
                         drawerLayout.closeDrawer((GravityCompat.START));
-                        Toast.makeText(HomeActivity.this,"destination", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(HomeActivity.this,"destination", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.menu_hebergement:
+                        fragmentR(new HebergementFragment());
+                        drawerLayout.closeDrawer((GravityCompat.START));
+                        //Toast.makeText(HomeActivity.this,"Hebergement", Toast.LENGTH_SHORT).show();
 
                         break;
 
                     default:
                         fragmentR(new AcceuilFragment());
                         drawerLayout.closeDrawer((GravityCompat.START));
-                        Toast.makeText(HomeActivity.this,"acceuil", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(HomeActivity.this,"acceuil", Toast.LENGTH_SHORT).show();
                         break;
 
                 }
@@ -80,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void fragmentR(Fragment fragment){
+    public void fragmentR(Fragment fragment){
         FragmentManager fragmentManager= getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
