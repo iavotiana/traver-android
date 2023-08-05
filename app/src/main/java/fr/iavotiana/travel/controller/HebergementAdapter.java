@@ -41,6 +41,7 @@ public class HebergementAdapter extends RecyclerView.Adapter<HebergementAdapter.
         holder.prixTextView.setText(String.valueOf(hebergement.getPrix()));
         holder.noteTextView.setText(String.valueOf(hebergement.getNote()));
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

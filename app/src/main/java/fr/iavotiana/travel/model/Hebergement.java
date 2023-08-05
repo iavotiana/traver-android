@@ -6,13 +6,17 @@ public class Hebergement {
     private String description;
     private double prix;
     private int note;
+    private String contentWebView;
+    private String urlImage;
 
-    public Hebergement(String nom, String lieu, String description, double prix, int note) {
+    public Hebergement(String nom, String lieu, String description, double prix, int note, String contentWebView, String urlImage) {
         this.nom = nom;
         this.lieu = lieu;
         this.description = description;
         this.prix = prix;
         this.note = note;
+        this.contentWebView= contentWebView;
+        this.urlImage = urlImage;
     }
 
     public String getNom() {
@@ -33,6 +37,14 @@ public class Hebergement {
 
     public int getNote() {
         return note;
+    }
+
+    public String getContentWebView() {
+        return contentWebView;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
     }
 }
 

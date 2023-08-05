@@ -27,18 +27,18 @@ public class HebergementFragment extends Fragment {
 
     public HebergementFragment() {
         this.hebergements = new ArrayList<>();
-        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4));
-        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3));
-        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5));
-        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4));
-        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3));
-        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5));
-        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4));
-        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3));
-        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5));
-        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4));
-        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3));
-        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5));
+        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4,"<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement1"));
+        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement2"));
+        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement3"));
+        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement4"));
+        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement1"));
+        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement2"));
+        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement3"));
+        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement4"));
+        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement1"));
+        hebergements.add(new Hebergement("Hotel A", "City X", "Luxurious hotel", 150.0, 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement2"));
+        hebergements.add(new Hebergement("Guesthouse B", "City Y", "Cozy guesthouse", 80.0, 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement3"));
+        hebergements.add(new Hebergement("Resort C", "City Z", "Beachfront resort", 200.0, 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","hebergement4"));
 
     }
 

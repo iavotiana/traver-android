@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -29,12 +30,14 @@ public class HebergementDetailFragment extends Fragment {
         TextView prixTextView = view.findViewById(R.id.prixTextView);
         TextView noteTextView = view.findViewById(R.id.noteTextView);
         TextView descriptionTextView = view.findViewById(R.id.descriptionTextView);
+        WebView contentWebView = view.findViewById(R.id.contentWebView);
 
         nomTextView.setText(selectedHebergement.getNom());
         lieuTextView.setText(selectedHebergement.getLieu());
         prixTextView.setText(String.valueOf(selectedHebergement.getPrix()));
         noteTextView.setText(String.valueOf(selectedHebergement.getNote()));
         descriptionTextView.setText(selectedHebergement.getDescription());
+        contentWebView.loadData(selectedHebergement.getContentWebView(), "text/html", "UTF-8");
 
         return view;
     }
