@@ -61,6 +61,7 @@ public class DestinationFragment extends Fragment {
 
         // Set up SearchView
         SearchView searchView = view.findViewById(R.id.searchView);
+       
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
