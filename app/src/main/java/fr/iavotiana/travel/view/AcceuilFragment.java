@@ -44,12 +44,14 @@ public class AcceuilFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_acceuil, container, false);
 
         TextView textView = view.findViewById(R.id.textConnexion);
+        TextView toolbarTitle = view.findViewById(R.id.toolbarTitle);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ConnectionFragment connectionFragment = new ConnectionFragment();
                 switchFragment(connectionFragment);
+                toolbarTitle.setText("Connection");
             }
         });
 
@@ -64,6 +66,15 @@ public class AcceuilFragment extends Fragment {
         mediaController.setAnchorView(videoView);
        // videoView.setMediaController(mediaController);
 
+        Button destinationButton = view.findViewById(R.id.btn_destination);
+        destinationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DestinationFragment destinationFragment = new DestinationFragment();
+                switchFragment(destinationFragment);
+                toolbarTitle.setText("Destination");
+            }
+        });
 
         Button hebergementButton = view.findViewById(R.id.btn_hebergement);
         hebergementButton.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +82,7 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 HebergementFragment hebergementFragment = new HebergementFragment();
                 switchFragment(hebergementFragment);
+                toolbarTitle.setText("Hebergement");
             }
         });
 
@@ -80,6 +92,7 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 EventFragment eventFragment = new EventFragment();
                 switchFragment(eventFragment);
+                toolbarTitle.setText("Evenement");
             }
         });
 
@@ -89,6 +102,7 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 InscriptionFragment inscriptionFragment = new InscriptionFragment();
                 switchFragment(inscriptionFragment);
+                toolbarTitle.setText("Inscription");
             }
         });
 
