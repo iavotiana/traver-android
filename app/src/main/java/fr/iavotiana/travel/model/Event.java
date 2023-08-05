@@ -1,6 +1,7 @@
 package fr.iavotiana.travel.model;
 
-public class Destination {
+public class Event {
+
     private String nom;
     private String lieu;
     private String description;
@@ -8,7 +9,7 @@ public class Destination {
     private String contentWebView;
     private String urlImage;
 
-    public Destination(String nom, String lieu, String description, int note, String contentWebView, String urlImage) {
+    public Event(String nom, String lieu, String description, int note, String contentWebView, String urlImage) {
         this.nom = nom;
         this.lieu = lieu;
         this.description = description;

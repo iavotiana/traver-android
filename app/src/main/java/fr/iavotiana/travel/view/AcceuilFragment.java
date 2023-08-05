@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import androidx.fragment.app.Fragment;
@@ -36,8 +37,21 @@ public class AcceuilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_acceuil, container, false);
+
+        TextView textView = view.findViewById(R.id.textConnexion);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConnectionFragment connectionFragment = new ConnectionFragment();
+                switchFragment(connectionFragment);
+            }
+        });
 
         videoView = view.findViewById(R.id.video);
 
@@ -50,15 +64,6 @@ public class AcceuilFragment extends Fragment {
         mediaController.setAnchorView(videoView);
        // videoView.setMediaController(mediaController);
 
-        Button destinationButton = view.findViewById(R.id.btn_destination);
-        destinationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DestinationFragment destinationFragment = new DestinationFragment();
-                switchFragment(destinationFragment);
-            }
-        });
-
 
         Button hebergementButton = view.findViewById(R.id.btn_hebergement);
         hebergementButton.setOnClickListener(new View.OnClickListener() {
@@ -69,21 +74,21 @@ public class AcceuilFragment extends Fragment {
             }
         });
 
-        Button activiteButton = view.findViewById(R.id.btn_activite);
-        activiteButton.setOnClickListener(new View.OnClickListener() {
+        Button eventButton = view.findViewById(R.id.btn_event);
+        eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActiviteFragment activiteFragment = new ActiviteFragment();
-                switchFragment(activiteFragment);
+                EventFragment eventFragment = new EventFragment();
+                switchFragment(eventFragment);
             }
         });
 
-        Button transportButton = view.findViewById(R.id.btn_transport);
-        transportButton.setOnClickListener(new View.OnClickListener() {
+        Button inscriptionButton = view.findViewById(R.id.btn_inscription);
+        inscriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransportFragment transportFragment = new TransportFragment();
-                switchFragment(transportFragment);
+                InscriptionFragment inscriptionFragment = new InscriptionFragment();
+                switchFragment(inscriptionFragment);
             }
         });
 

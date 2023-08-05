@@ -13,13 +13,20 @@
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/content_scrolling.xml" value="0.33152173913043476" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_acceuil.xml" value="0.19375" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_activite.xml" value="0.20416666666666666" />
-        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_connection.xml" value="0.264" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_connection.xml" value="0.152" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_destination.xml" value="0.35104166666666664" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_destination_detail.xml" value="0.26222826086956524" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_event.xml" value="0.15572916666666667" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_event_detail.xml" value="0.26222826086956524" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_hebergement.xml" value="0.30085470085470084" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_hebergement_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_inscription.xml" value="0.1" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_item_destination.xml" value="0.15572916666666667" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_setting.xml" value="0.15729166666666666" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/fragment_transport.xml" value="0.20416666666666666" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/hearder.xml" value="0.264" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/item_destination.xml" value="0.15572916666666667" />
+        <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/item_event.xml" value="0.15572916666666667" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/item_hebergement.xml" value="0.20416666666666666" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/layout/list_item.xml" value="0.1" />
         <entry key="..\:/M1/Android/projet-M1/traver-android/app/src/main/res/menu/menu_acceuil.xml" value="0.20572916666666666" />
