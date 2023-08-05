@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,9 @@ import fr.iavotiana.travel.model.Hebergement;
 public class HebergementFragment extends Fragment {
 
     private ArrayList<Hebergement> hebergements;
+    private ArrayList<Hebergement> filteredHebergements; // For filtered data
+    private HebergementAdapter adapter;
+
 
     public HebergementFragment() {
         this.hebergements = new ArrayList<>();
@@ -54,6 +58,36 @@ public class HebergementFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        // Set up SearchView
+        SearchView searchView = view.findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterData(newText);
+                return true;
+            }
+        });
+
         return view;
+    }
+
+    private void filterData(String query) {
+        if (filteredHebergements == null) {
+            return;
+        }
+
+        filteredHebergements.clear();
+        for (Hebergement hebergement : hebergements) {
+            if (hebergement.getNom().toLowerCase().contains(query.toLowerCase()) ||
+                    hebergement.getLieu().toLowerCase().contains(query.toLowerCase())) {
+                filteredHebergements.add(hebergement);
+            }
+        }
+        adapter.notifyDataSetChanged();
     }
 }

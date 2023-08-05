@@ -5,43 +5,37 @@
     android:layout_height="match_parent"
     tools:context=".view.HebergementFragment">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        android:id="@+id/item_hebergement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:id="@+id/item_hebergement"
-        >
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/nomTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/lieuTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/prixTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/noteTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="185dp"
+            android:src="@drawable/hebergement_baner" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:queryHint="Search Hebergements">
+
+        </SearchView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="399dp"
+                android:layout_height="459dp" />
+        </LinearLayout>
 
     </LinearLayout>
 
