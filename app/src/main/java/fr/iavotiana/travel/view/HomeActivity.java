@@ -72,6 +72,14 @@ public class HomeActivity extends AppCompatActivity {
 
                         break;
 
+
+                    case R.id.menu_settings:
+                        fragmentR(new SettingFragment());
+                        drawerLayout.closeDrawer((GravityCompat.START));
+                        //Toast.makeText(HomeActivity.this,"Hebergement", Toast.LENGTH_SHORT).show();
+
+                        break;
+
                     default:
                         fragmentR(new AcceuilFragment());
                         drawerLayout.closeDrawer((GravityCompat.START));
