@@ -1,6 +1,7 @@
 package fr.iavotiana.travel.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import fr.iavotiana.travel.model.Hebergement;
 public class HebergementFragment extends Fragment {
 
     private ArrayList<Hebergement> hebergements;
-    private ArrayList<Hebergement> filteredHebergements; // For filtered data
+    private ArrayList<Hebergement> filteredHebergements= new ArrayList<>(); // For filtered data
     private HebergementAdapter adapter;
 
 
@@ -54,7 +55,7 @@ public class HebergementFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_hebergement, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-         HebergementAdapter adapter = new HebergementAdapter(hebergements);
+        adapter = new HebergementAdapter(hebergements);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -69,6 +70,8 @@ public class HebergementFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 filterData(newText);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 return true;
             }
         });
@@ -77,17 +80,20 @@ public class HebergementFragment extends Fragment {
     }
 
     private void filterData(String query) {
-        if (filteredHebergements == null) {
-            return;
+        Log.d("tag= ", "filterData ********************************");
+        if (filteredHebergements.size() != 0) {
+            filteredHebergements.clear();
+            Log.d("tag= ", "filteredHebergements != null");
         }
 
-        filteredHebergements.clear();
+
         for (Hebergement hebergement : hebergements) {
             if (hebergement.getNom().toLowerCase().contains(query.toLowerCase()) ||
                     hebergement.getLieu().toLowerCase().contains(query.toLowerCase())) {
                 filteredHebergements.add(hebergement);
             }
         }
+        adapter= new HebergementAdapter(filteredHebergements);
         adapter.notifyDataSetChanged();
     }
 }
