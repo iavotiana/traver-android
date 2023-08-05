@@ -72,7 +72,6 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 DestinationFragment destinationFragment = new DestinationFragment();
                 switchFragment(destinationFragment);
-                toolbarTitle.setText("Destination");
             }
         });
 
@@ -82,7 +81,6 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 HebergementFragment hebergementFragment = new HebergementFragment();
                 switchFragment(hebergementFragment);
-                toolbarTitle.setText("Hebergement");
             }
         });
 
@@ -92,7 +90,6 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 EventFragment eventFragment = new EventFragment();
                 switchFragment(eventFragment);
-                toolbarTitle.setText("Evenement");
             }
         });
 
@@ -102,7 +99,6 @@ public class AcceuilFragment extends Fragment {
             public void onClick(View v) {
                 InscriptionFragment inscriptionFragment = new InscriptionFragment();
                 switchFragment(inscriptionFragment);
-                toolbarTitle.setText("Inscription");
             }
         });
 
