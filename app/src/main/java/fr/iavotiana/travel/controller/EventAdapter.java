@@ -3,11 +3,14 @@ package fr.iavotiana.travel.controller;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,11 +37,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
     @Override
     public void onBindViewHolder(@NotNull EventViewHolder holder, int position) {
-        final Event Event = Events.get(position);
+        final Event event = Events.get(position);
 
-        holder.nomTextView.setText(Event.getNom());
-        holder.lieuTextView.setText(Event.getLieu());
-        holder.noteTextView.setText(String.valueOf(Event.getNote()));
+        holder.nomTextView.setText(event.getNom());
+        holder.lieuTextView.setText(event.getLieu());
+        holder.descriptionTextView.setText(String.valueOf(event.getNote()));
+        Picasso.get().load(event.getUrlImage()).into(holder.imagelist);
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +52,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
                 FragmentTransaction transaction = ((AppCompatActivity) v.getContext())
                         .getSupportFragmentManager()
                         .beginTransaction();
-                transaction.replace(R.id.frame, new EventDetailFragment(Event));
+                transaction.replace(R.id.frame, new EventDetailFragment(event));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -61,18 +65,22 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
     static class EventViewHolder extends RecyclerView.ViewHolder {
+        TextView descriptionTextView;
         TextView nomTextView;
         TextView lieuTextView;
-        TextView prixTextView;
-        TextView noteTextView;
+        ImageView imagelist;
+
+        // affichage du baner selon l'url image
+
 
         EventViewHolder(View itemView) {
             super(itemView);
             nomTextView = itemView.findViewById(R.id.nomTextView);
             lieuTextView = itemView.findViewById(R.id.lieuTextView);
-            prixTextView = itemView.findViewById(R.id.prixTextView);
-            noteTextView = itemView.findViewById(R.id.noteTextView);
+            descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
+            imagelist = itemView.findViewById(R.id.imagelist);
         }
+
     }
 }
 

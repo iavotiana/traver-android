@@ -30,22 +30,22 @@ public class EventFragment extends Fragment {
         String urlSomaro= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6OsHFAECGW1s4oiOQR5kBzQB-7sSq7ljrBEoGSBn1Y9H93ZlaA7EH0tpqe5WR67HRUg&usqp=CAU";
 
         String htmlContentJeuxDestIles = "<!DOCTYPE html><html><head><style>body{font-family: Arial, sans-serif;font-size: 16px;line-height: 1.6;color: #333;}.title{font-size: 24px;font-weight: bold;color: #FF5733;}.details{font-size: 18px;color: #666;}.important{font-weight: bold;color: #007BFF;}</style></head><body><p class=title>Jeux des Îles Madagascar 2023</p><p class=details>Ne manquez pas les <span class=important>Jeux des Îles Madagascar 2023</span>, un événement sportif d'envergure régionale qui se tiendra à travers diverses villes de Madagascar. Ces jeux rassembleront des athlètes et des équipes de différentes îles de l'océan Indien pour des compétitions passionnantes.</p><p class=details>Points forts des Jeux :<ul><li>Compétitions variées dans une atmosphère festive</li><li><span class=important>Cérémonie d'ouverture</span> spectaculaire</li><li>Rencontres sportives entre les nations insulaires</li><li>Opportunités de découvrir la culture malgache</li></ul></p></body></html>";
-        String urlJeuxDesIles= "\n" +
-                "https://www.google.com/url?sa=i&url=https%3A%2F%2Factu.orange.mg%2Fles-identites-de-la-11eme-edition-des-jeux-de-iles-de-locean-indien-devoilees%2F&psig=AOvVaw05fGss0RsQzP6BJVgIDnyL&ust=1691442641422000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiOw__4yIADFQAAAAAdAAAAABAE";
+        String urlJeuxDesIles= "https://jioi2023.org/mjs-child/images/logo.png";
 
+        String defaultUrl= "https://www.linfo.re/IMG/jpg/jioi1.jpg";
         this.Events = new ArrayList<>();
         Events.add(new Event("SOMARO 2023", "Nosy Be", "Festivale Musicale et culturelle", 3,htmlContentSomaro,urlSomaro));
         Events.add(new Event("Jeux des Iles", "Antananarivo", "Jeux", 4, htmlContentJeuxDestIles,urlJeuxDesIles));
-        Events.add(new Event("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","https://farm9.staticflickr.com/8410/30193245810_7b7ff74cd5.jpg"));
-        Events.add(new Event("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event4"));
-        Events.add(new Event("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event1"));
-        Events.add(new Event("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event2"));
-        Events.add(new Event("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event3"));
-        Events.add(new Event("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event4"));
-        Events.add(new Event("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event1"));
-        Events.add(new Event("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event2"));
-        Events.add(new Event("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event3"));
-        Events.add(new Event("Resort C", "City Z", "Beachfront resort" , 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Event4"));
+        Events.add(new Event("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",urlSomaro));
+        Events.add(new Event("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",urlJeuxDesIles));
+        Events.add(new Event("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
+        Events.add(new Event("Resort C", "City Z", "Beachfront resort" , 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>",defaultUrl));
 
     }
 

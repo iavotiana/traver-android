@@ -72,7 +72,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
                     android:backgroundTint="@color/colorPrimary"
-                    android:text="Login"
+                    android:text="Se connecter"
                     android:textSize="18sp"
                     app:cornerRadius="20dp" />
 
@@ -86,7 +86,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/colorPrimary"
-            android:text="S'inscrir"
+            android:text="S'inscrire"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
 

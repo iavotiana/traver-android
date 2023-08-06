@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="10dp">
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="5dp">
 
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="80dp"
+        android:id="@+id/imagelist"
+        android:layout_width="159dp"
         android:layout_height="80dp"
         app:srcCompat="@drawable/logo2" />
 
@@ -34,19 +35,12 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/noteTextView"
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/prixTextView"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_weight="1"
-        android:textSize="14sp" />
 
 </LinearLayout>
 
