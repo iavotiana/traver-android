@@ -16,37 +16,24 @@ import java.util.ArrayList;
 import fr.iavotiana.travel.R;
 import fr.iavotiana.travel.controller.DestinationAdapter;
 import fr.iavotiana.travel.model.Destination;
+import fr.iavotiana.travel.retrofit.IMyApi;
+import fr.iavotiana.travel.retrofit.RetrofitClient;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class DestinationFragment extends Fragment {
 
-    private ArrayList<Destination> Destinations;
+    private ArrayList<Destination> Destinations = new ArrayList<>();
     private ArrayList<Destination> filteredDestinations= new ArrayList<>(); // For filtered data
     private DestinationAdapter adapter;
 
+    private IMyApi iMyApi;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    public DestinationFragment() {
-        this.Destinations = new ArrayList<>();
-        Destinations.add(new Destination("Hotel A", "City X", "Luxurious hotel", 4,"<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination1"));
-        Destinations.add(new Destination("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination2"));
-        Destinations.add(new Destination("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination3"));
-        Destinations.add(new Destination("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination4"));
-        Destinations.add(new Destination("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination1"));
-        Destinations.add(new Destination("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination2"));
-        Destinations.add(new Destination("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination3"));
-        Destinations.add(new Destination("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination4"));
-        Destinations.add(new Destination("Resort C", "City Z", "Beachfront resort", 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination1"));
-        Destinations.add(new Destination("Hotel A", "City X", "Luxurious hotel", 4, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination2"));
-        Destinations.add(new Destination("Guesthouse B", "City Y", "Cozy guesthouse", 3, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination3"));
-        Destinations.add(new Destination("Resort C", "City Z", "Beachfront resort" , 5, "<html><body><h1>Hello, <em>World</em>!</h1></body></html>","Destination4"));
 
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,7 +48,7 @@ public class DestinationFragment extends Fragment {
 
         // Set up SearchView
         SearchView searchView = view.findViewById(R.id.searchView);
-       
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -71,30 +58,48 @@ public class DestinationFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 filterData(newText);
-                recyclerView.setAdapter(adapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 return true;
             }
         });
 
+        // Initialize the API service
+        iMyApi = RetrofitClient.getInstance().create(IMyApi.class);
+
+        // Load destinations from API
+        getDestinationsFromApi();
+
         return view;
     }
 
+    private void getDestinationsFromApi() {
+        compositeDisposable.add(iMyApi.getDestination()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        destinationList -> {
+                            Destinations.clear(); // Clear the current list before adding new data
+                            Destinations.addAll(destinationList); // Initialize Destinations list if not already initialized
+                            Log.d("DestinationFragment", "Destinations fetched: " + Destinations.size());
+                            adapter.notifyDataSetChanged();
+
+                        },
+                        throwable -> {
+                            Log.e("DestinationFragment", "Error fetching destinations", throwable);
+                        }
+                ));
+    }
+
     private void filterData(String query) {
-        Log.d("tag= ", "filterData ********************************");
-        if (filteredDestinations.size() != 0) {
-            filteredDestinations.clear();
-            Log.d("tag= ", "filteredDestinations != null");
-        }
+        filteredDestinations.clear();
 
-
-        for (Destination Destination : Destinations) {
-            if (Destination.getNom().toLowerCase().contains(query.toLowerCase()) ||
-                    Destination.getLieu().toLowerCase().contains(query.toLowerCase())) {
-                filteredDestinations.add(Destination);
+        for (Destination destination : Destinations) {
+            if (destination.getNom().toLowerCase().contains(query.toLowerCase()) ||
+                    destination.getLieu().toLowerCase().contains(query.toLowerCase())) {
+                filteredDestinations.add(destination);
             }
         }
-        adapter= new DestinationAdapter(filteredDestinations);
+        adapter.setDestinations(filteredDestinations);
         adapter.notifyDataSetChanged();
     }
+
 }

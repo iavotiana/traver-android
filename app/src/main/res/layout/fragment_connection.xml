@@ -39,7 +39,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -53,7 +53,7 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/txtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -67,7 +67,7 @@
                     android:textColor="@color/black" />
 
                 <Button
-                    android:id="@+id/buttonConnection"
+                    android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"

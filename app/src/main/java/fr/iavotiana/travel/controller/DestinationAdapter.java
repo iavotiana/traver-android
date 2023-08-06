@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.iavotiana.travel.R;
 import fr.iavotiana.travel.model.Destination;
@@ -19,10 +20,14 @@ import fr.iavotiana.travel.view.DestinationDetailFragment;
 
 public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.DestinationViewHolder> {
 
-    private ArrayList<Destination> Destinations;
+    private ArrayList<Destination> Destinations =new ArrayList<>();
+
 
     public DestinationAdapter(ArrayList<Destination> Destinations) {
         this.Destinations = Destinations;
+    }
+    public void setDestinations(List<Destination> destinations) {
+        this.Destinations = new ArrayList<>(destinations);
     }
 
     @NotNull
