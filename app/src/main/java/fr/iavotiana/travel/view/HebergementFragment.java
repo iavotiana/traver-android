@@ -33,12 +33,13 @@ public class HebergementFragment extends Fragment {
     private HebergementAdapter adapter;
     private IMyApi iMyApi;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private ArrayList<Hebergement> filteredHebergements = new ArrayList<>();
+
 
     public HebergementFragment() {}
 
 
     private boolean isUserLoggedIn() {
-        // Vérifiez si l'utilisateur est connecté en vérifiant si le token est présent dans SharedPreferences
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
         return !TextUtils.isEmpty(token);
@@ -47,10 +48,9 @@ public class HebergementFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hebergement, container, false);
 
-        // Initialize the API service
+
         iMyApi = RetrofitClient.getInstance().create(IMyApi.class);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
@@ -58,8 +58,6 @@ public class HebergementFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        // Set up SearchView
-        // ... Votre code SearchView ...
 
         // Vérifiez si l'utilisateur est connecté avant d'appeler getHebergementsFromApi
         if (isUserLoggedIn()) {
@@ -73,6 +71,28 @@ public class HebergementFragment extends Fragment {
             // L'utilisateur n'est pas connecté, afficher un message ou effectuer d'autres actions si nécessaire
             Toast.makeText(getContext(), "Vous devez vous authentifier", Toast.LENGTH_SHORT).show();
         }
+        SearchView searchView = view.findViewById(R.id.searchView);
+
+        // Configurer le SearchView pour la recherche
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Cette méthode est appelée lorsque l'utilisateur soumet la recherche.
+                // Vous pouvez effectuer la recherche ici, mais pour l'instant, nous n'en avons pas besoin car nous mettrons à jour la liste à chaque modification de texte.
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Cette méthode est appelée à chaque fois que l'utilisateur modifie le texte dans le SearchView.
+                // Vous pouvez effectuer la recherche et filtrer les données ici.
+
+                filterData(newText);
+
+                return true;
+            }
+        });
 
         return view;
     }
@@ -94,19 +114,23 @@ public class HebergementFragment extends Fragment {
     }
 
     private void filterData(String query) {
-        Log.d("tag= ", "filterData ********************************");
-        ArrayList<Hebergement> filteredHebergements = new ArrayList<>();
+        filteredHebergements.clear();
 
-        for (Hebergement hebergement : hebergements) {
-            if (hebergement.getNom().toLowerCase().contains(query.toLowerCase()) ||
-                    hebergement.getLieu().toLowerCase().contains(query.toLowerCase())) {
-                filteredHebergements.add(hebergement);
+        if (TextUtils.isEmpty(query)) {
+            // Si la requête de recherche est vide, afficher tous les hébergements non filtrés
+            filteredHebergements.addAll(hebergements);
+        } else {
+            // Filtrer les hébergements en fonction de la requête de recherche
+            for (Hebergement hebergement : hebergements) {
+                if (hebergement.getNom().toLowerCase().contains(query.toLowerCase()) ||
+                        hebergement.getLieu().toLowerCase().contains(query.toLowerCase())) {
+                    filteredHebergements.add(hebergement);
+                }
             }
         }
 
-        hebergements.clear();
-        hebergements.addAll(filteredHebergements);
-        adapter.notifyDataSetChanged();
+        // Mettre à jour l'adaptateur avec les données filtrées
+        adapter.setData(filteredHebergements);
     }
 
     @Override

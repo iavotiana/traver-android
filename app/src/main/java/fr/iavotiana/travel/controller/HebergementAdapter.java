@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.iavotiana.travel.R;
 import fr.iavotiana.travel.model.Hebergement;
@@ -23,6 +24,11 @@ public class HebergementAdapter extends RecyclerView.Adapter<HebergementAdapter.
 
     public HebergementAdapter(ArrayList<Hebergement> hebergements) {
         this.hebergements = hebergements;
+    }
+
+    public void setData(ArrayList<Hebergement> filteredHebergements) {
+        this.hebergements = filteredHebergements;
+        notifyDataSetChanged(); // Notifiez l'adaptateur que les données ont changé pour rafraîchir l'affichage
     }
 
     @NotNull

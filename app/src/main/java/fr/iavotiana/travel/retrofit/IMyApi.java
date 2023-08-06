@@ -27,8 +27,6 @@ public interface IMyApi {
     @FormUrlEncoded
     Observable<UserResponse> loginUser(@Field("email")String email, @Field("password") String password);
 
-    @POST("user/sendToken")
-    @FormUrlEncoded
-    Observable<ResponseBody> sendToken(@Field("token") String token);
+
 
 }
