@@ -46,7 +46,7 @@ public class InscriptionFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_connection, container, false);
+        View view = inflater.inflate(R.layout.fragment_inscription, container, false);
 
         //Initialisation Service
         Retrofit retrofitClient = RetrofitClient.getInstance();
@@ -57,7 +57,7 @@ public class InscriptionFragment extends Fragment {
         txtEmail = view.findViewById(R.id.txtEmail);
         txtPassword = view.findViewById(R.id.txtPassword);
 
-        btnSignup = view.findViewById(R.id.btnLogin);
+        btnSignup = view.findViewById(R.id.btnSignup);
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

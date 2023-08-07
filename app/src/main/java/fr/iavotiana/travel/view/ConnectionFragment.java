@@ -71,12 +71,10 @@ public class ConnectionFragment extends Fragment {
         inscriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InscriptionFragment inscriptionFragment = new InscriptionFragment();
-                switchFragment(inscriptionFragment);
+               InscriptionFragment inscr= new InscriptionFragment();
+                switchFragment(inscr);
             }
         });
-
-
 
         return view;
     }
@@ -132,7 +130,7 @@ public class ConnectionFragment extends Fragment {
     }
     public void switchFragment(Fragment secondFragment){
         FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, secondFragment);
+        transaction.replace(R.id.frame, new InscriptionFragment());
         transaction.addToBackStack(null); // Add to back stack for back navigation
         transaction.commit();
     }
