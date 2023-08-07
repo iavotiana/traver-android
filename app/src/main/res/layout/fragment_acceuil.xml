@@ -44,7 +44,7 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/colorPrimary"
             android:radius="20dp"
-            android:text="Nos Destinations"
+            android:text="Destination"
             android:textColor="@android:color/white"
             android:textSize="12sp" />
 

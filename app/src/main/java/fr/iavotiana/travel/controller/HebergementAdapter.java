@@ -3,16 +3,18 @@ package fr.iavotiana.travel.controller;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import fr.iavotiana.travel.R;
 import fr.iavotiana.travel.model.Hebergement;
@@ -44,8 +46,8 @@ public class HebergementAdapter extends RecyclerView.Adapter<HebergementAdapter.
 
         holder.nomTextView.setText(hebergement.getNom());
         holder.lieuTextView.setText(hebergement.getLieu());
-        holder.prixTextView.setText(String.valueOf(hebergement.getPrix()));
-        holder.noteTextView.setText(String.valueOf(hebergement.getNote()));
+
+        Picasso.get().load(hebergement.getUrlImage()).into(holder.imagelist);
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -70,15 +72,12 @@ public class HebergementAdapter extends RecyclerView.Adapter<HebergementAdapter.
     static class HebergementViewHolder extends RecyclerView.ViewHolder {
         TextView nomTextView;
         TextView lieuTextView;
-        TextView prixTextView;
-        TextView noteTextView;
-
+        ImageView imagelist;
         HebergementViewHolder(View itemView) {
             super(itemView);
             nomTextView = itemView.findViewById(R.id.nomTextView);
             lieuTextView = itemView.findViewById(R.id.lieuTextView);
-            prixTextView = itemView.findViewById(R.id.prixTextView);
-            noteTextView = itemView.findViewById(R.id.noteTextView);
+            imagelist = itemView.findViewById(R.id.imagelist);
         }
     }
 }

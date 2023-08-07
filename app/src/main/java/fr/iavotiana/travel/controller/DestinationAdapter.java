@@ -80,7 +80,6 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
             super(itemView);
             nomTextView = itemView.findViewById(R.id.nomTextView);
             lieuTextView = itemView.findViewById(R.id.lieuTextView);
-            prixTextView = itemView.findViewById(R.id.prixTextView);
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
             imagelist = itemView.findViewById(R.id.imagelist);
         }
