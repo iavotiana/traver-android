@@ -40,8 +40,8 @@ public class HebergementDetailFragment extends Fragment {
         nomTextView.setText(selectedHebergement.getNom());
         lieuTextView.setText(selectedHebergement.getLieu());
         descriptionTextView.setText(selectedHebergement.getDescription());
-        contentWebView.loadData(selectedHebergement.getContentWebView(), "text/html", "UTF-8");
 
+        contentWebView.loadDataWithBaseURL(null, selectedHebergement.getContentWebView(), "text/html", "UTF-8", null);
         Glide.with(this)
                 .load(selectedHebergement.getUrlImage())
                 .placeholder(R.drawable.background_event)
@@ -58,6 +58,7 @@ public class HebergementDetailFragment extends Fragment {
             imageView.setImageResource(R.drawable.etoile); // Change to your desired image resource
             imageLayout.addView(imageView);
         }
+
         return view;
     }
 }
