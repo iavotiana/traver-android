@@ -89,7 +89,7 @@ public class ConnectionFragment extends Fragment {
         }
         if (TextUtils.isEmpty(password)) {
             if (isAdded()) {
-                Toast.makeText(getContext(), "Email cannot be empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Password cannot be empty", Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -101,11 +101,9 @@ public class ConnectionFragment extends Fragment {
                         apiResponse -> {
                             UserModel user = apiResponse.getUserModel();
                             String token = apiResponse.getToken();
-                            // Maintenant, vous pouvez utiliser les informations comme avant
                             String toastMessage =" Bonjour  " + user.getNom() ;
                             Toast.makeText(getContext(), toastMessage, Toast.LENGTH_LONG).show();
 
-                            // Enregistrez le token dans SharedPreferences
                             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("token", token);
@@ -113,9 +111,7 @@ public class ConnectionFragment extends Fragment {
 
                         },
                         throwable -> {
-                            // Gérer les erreurs ici
                             if (throwable instanceof HttpException) {
-                                // Convertir la réponse d'erreur en objet UserModel si possible
                                 try {
                                     ResponseBody errorBody = ((HttpException) throwable).response().errorBody();
                                     if (errorBody != null) {

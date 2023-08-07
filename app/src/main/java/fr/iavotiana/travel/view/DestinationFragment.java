@@ -77,8 +77,8 @@ public class DestinationFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         destinationList -> {
-                            Destinations.clear(); // Clear the current list before adding new data
-                            Destinations.addAll(destinationList); // Initialize Destinations list if not already initialized
+                            Destinations.clear();
+                            Destinations.addAll(destinationList);
                             Log.d("DestinationFragment", "Destinations fetched: " + Destinations.size());
                             adapter.notifyDataSetChanged();
 
