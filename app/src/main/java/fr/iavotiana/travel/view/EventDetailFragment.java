@@ -44,7 +44,7 @@ public class EventDetailFragment extends Fragment {
         //String htmlContent = "<html><head><title>Événement Somaro Madagascar 2023</title><style>body {font-family: Arial, sans-serif;font-size: 16px;line-height: 1.6;color: #3498db;}.event-title {font-size: 24px;font-weight: bold;}</style></head><body><h1 class=event-title>Événement Somaro Madagascar 2023</h1>Bienvenue à l'événement Somaro Madagascar 2023,</body></html>";
 
         contentWebView.loadDataWithBaseURL(null, selectedEvent.getContentWebView(), "text/html", "UTF-8", null);
-
+        System.out.println(selectedEvent.getContentWebView());
         // affichage du baner selon l'url image
         Glide.with(this)
                 .load(selectedEvent.getUrlImage())

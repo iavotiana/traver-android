@@ -58,19 +58,6 @@ public class HebergementFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-        // Vérifiez si l'utilisateur est connecté avant d'appeler getHebergementsFromApi
-        if (isUserLoggedIn()) {
-            // Récupérer le token d'authentification depuis SharedPreferences
-            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            String token = sharedPreferences.getString("token", "");
-
-            // Charger les hébergements depuis l'API en utilisant le token d'authentification
-            getHebergementsFromApi(token);
-        } else {
-            // L'utilisateur n'est pas connecté, afficher un message ou effectuer d'autres actions si nécessaire
-            Toast.makeText(getContext(), "Vous devez vous authentifier", Toast.LENGTH_SHORT).show();
-        }
         SearchView searchView = view.findViewById(R.id.searchView);
 
         // Configurer le SearchView pour la recherche
@@ -94,11 +81,13 @@ public class HebergementFragment extends Fragment {
             }
         });
 
+
+        getHebergementsFromApi();
         return view;
     }
 
-    private void getHebergementsFromApi(String token) {
-        compositeDisposable.add(iMyApi.getHebergement("Bearer " + token)
+    private void getHebergementsFromApi() {
+        compositeDisposable.add(iMyApi.getHebergement()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -108,7 +97,7 @@ public class HebergementFragment extends Fragment {
                             adapter.notifyDataSetChanged();
                         },
                         throwable -> {
-                            Toast.makeText(getContext(), "vous deviez vous authentifier", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Hebergement erreur", Toast.LENGTH_SHORT).show();
                         }
                 ));
     }

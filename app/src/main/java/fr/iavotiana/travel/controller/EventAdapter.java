@@ -25,6 +25,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         this.Events = Events;
     }
 
+    public void setEvents(ArrayList<Event> newEvents) {
+        this.Events = newEvents;
+        notifyDataSetChanged();
+    }
+
     @NotNull
     @Override
     public EventViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
