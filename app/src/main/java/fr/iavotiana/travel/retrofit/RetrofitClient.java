@@ -11,7 +11,7 @@ public class RetrofitClient {
     public static  Retrofit getInstance(){
         if(instance == null) {
             instance = new Retrofit.Builder()
-                    .baseUrl("http://192.168.88.252:8080/")
+                    .baseUrl("https://tourism-m1.vercel.app/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();

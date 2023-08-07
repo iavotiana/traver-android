@@ -12,8 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-
-import com.google.gson.Gson;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -67,6 +66,17 @@ public class ConnectionFragment extends Fragment {
                 loginUser(txtEmail.getText().toString(), txtPassword.getText().toString());
             }
         });
+
+        Button inscriptionButton = view.findViewById(R.id.buttonInscription);
+        inscriptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InscriptionFragment inscriptionFragment = new InscriptionFragment();
+                switchFragment(inscriptionFragment);
+            }
+        });
+
+
 
         return view;
     }
@@ -123,5 +133,11 @@ public class ConnectionFragment extends Fragment {
                         }
                 )
         );
+    }
+    public void switchFragment(Fragment secondFragment){
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, secondFragment);
+        transaction.addToBackStack(null); // Add to back stack for back navigation
+        transaction.commit();
     }
 }

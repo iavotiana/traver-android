@@ -1,6 +1,9 @@
 package fr.iavotiana.travel.view;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +13,12 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import fr.iavotiana.travel.R;
@@ -21,7 +27,9 @@ import fr.iavotiana.travel.R;
 public class AcceuilFragment extends Fragment {
 
     private VideoView videoView;
-
+    private NotificationManagerCompat notificationManagerCompat;
+    private NotificationCompat.Builder builder;
+    private static final String CHANNEL_ID = "myChannel";
 
     public AcceuilFragment() {
         // Required empty public constructor
@@ -43,17 +51,9 @@ public class AcceuilFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_acceuil, container, false);
 
-        TextView textView = view.findViewById(R.id.textConnexion);
         TextView toolbarTitle = view.findViewById(R.id.toolbarTitle);
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ConnectionFragment connectionFragment = new ConnectionFragment();
-                switchFragment(connectionFragment);
-                toolbarTitle.setText("Connection");
-            }
-        });
+
 
         videoView = view.findViewById(R.id.video);
 
@@ -102,7 +102,37 @@ public class AcceuilFragment extends Fragment {
             }
         });
 
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "My Channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = requireContext().getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+        }
+
+        builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_baseline_notifications_24)  // Set a valid small icon
+                .setContentTitle("TRAVEL MADAGASCAR")
+                .setContentText("Félicitations !\n" +
+                        "Vous êtes maintenant abonné à nos mises à jour.\n" +
+                        "Restez à jour avec les dernières nouvelles, offres spéciales et événements passionnants.");
+
+        notificationManagerCompat = NotificationManagerCompat.from(requireContext());
+
+        Button sendNotificationButton = view.findViewById(R.id.send_notification_button);
+        sendNotificationButton.setOnClickListener(v -> sendNotification());
+    }
+
+    private void sendNotification() {
+        notificationManagerCompat.notify(123, builder.build());
     }
 
     @Override
@@ -129,5 +159,6 @@ public class AcceuilFragment extends Fragment {
         transaction.addToBackStack(null); // Add to back stack for back navigation
         transaction.commit();
     }
+
 
 }

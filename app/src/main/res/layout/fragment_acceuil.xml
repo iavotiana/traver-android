@@ -7,94 +7,96 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        >
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <VideoView
                 android:id="@+id/video"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <TextView
-                android:id="@+id/textConnexion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Connexion"
-                android:textAlignment="center"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:layout_height="277dp" />
+
+
         </FrameLayout>
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:fontFamily="cursive"
-            android:textSize="18sp"
             android:gravity="center"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
-            android:text="'' Explorer l'ile de Madagascar '' "
+            android:text="'' Explorer l'Île de Madagascar '' "
             android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_destination"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="Nos Destinations"
-        android:textSize="12sp"
-        android:layout_marginTop="40dp"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"
-        android:radius="20dp"
-        android:layout_gravity="center_horizontal"
-        />
+        <Button
+            android:id="@+id/btn_destination"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:radius="20dp"
+            android:text="Nos Destinations"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
         <Button
             android:id="@+id/btn_hebergement"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="Hebergement"
-            android:textSize="12sp"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/colorPrimary"
             android:radius="20dp"
-            android:layout_gravity="center_horizontal"
-            />
+            android:text="Hebergement"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
         <Button
             android:id="@+id/btn_event"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="Evenement"
-            android:textSize="12sp"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/colorPrimary"
             android:radius="20dp"
-            android:layout_gravity="center_horizontal"
-            />
+            android:text="Evenement"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btn_inscription"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="Inscription"
-            android:textSize="12sp"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/colorPrimary"
             android:radius="20dp"
+            android:text="Inscription"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/send_notification_button"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/teal_700"
+            android:onClick="push"
+            android:radius="20dp"
+            android:text="S'abonner"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
 
     </LinearLayout>
 </FrameLayout>
