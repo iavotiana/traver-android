@@ -46,7 +46,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         holder.nomTextView.setText(event.getNom());
         holder.lieuTextView.setText(event.getLieu());
-        holder.descriptionTextView.setText(String.valueOf(event.getNote()));
+
         Picasso.get().load(event.getUrlImage()).into(holder.imagelist);
 
 
@@ -70,7 +70,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
     static class EventViewHolder extends RecyclerView.ViewHolder {
-        TextView descriptionTextView;
+
         TextView nomTextView;
         TextView lieuTextView;
         ImageView imagelist;
@@ -82,7 +82,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             super(itemView);
             nomTextView = itemView.findViewById(R.id.nomTextView);
             lieuTextView = itemView.findViewById(R.id.lieuTextView);
-            descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
             imagelist = itemView.findViewById(R.id.imagelist);
         }
 

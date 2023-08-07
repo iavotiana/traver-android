@@ -3,11 +3,14 @@ package fr.iavotiana.travel.controller;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -39,12 +42,13 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
 
     @Override
     public void onBindViewHolder(@NotNull DestinationViewHolder holder, int position) {
-        final Destination Destination = Destinations.get(position);
+        final Destination destination = Destinations.get(position);
 
-        holder.nomTextView.setText(Destination.getNom());
-        holder.lieuTextView.setText(Destination.getLieu());
-        holder.noteTextView.setText(String.valueOf(Destination.getNote()));
+        holder.nomTextView.setText(destination.getNom());
+        holder.lieuTextView.setText(destination.getLieu());
+        holder.descriptionTextView.setText(destination.getDescription());
 
+        Picasso.get().load(destination.getUrlImage()).into(holder.imagelist);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +57,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
                 FragmentTransaction transaction = ((AppCompatActivity) v.getContext())
                         .getSupportFragmentManager()
                         .beginTransaction();
-                transaction.replace(R.id.frame, new DestinationDetailFragment(Destination));
+                transaction.replace(R.id.frame, new DestinationDetailFragment(destination));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -66,17 +70,19 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     }
 
     static class DestinationViewHolder extends RecyclerView.ViewHolder {
+        TextView descriptionTextView;
         TextView nomTextView;
         TextView lieuTextView;
         TextView prixTextView;
-        TextView noteTextView;
+        ImageView imagelist;
 
         DestinationViewHolder(View itemView) {
             super(itemView);
             nomTextView = itemView.findViewById(R.id.nomTextView);
             lieuTextView = itemView.findViewById(R.id.lieuTextView);
             prixTextView = itemView.findViewById(R.id.prixTextView);
-            noteTextView = itemView.findViewById(R.id.noteTextView);
+            descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
+            imagelist = itemView.findViewById(R.id.imagelist);
         }
     }
 }

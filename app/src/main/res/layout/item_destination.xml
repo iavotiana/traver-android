@@ -7,16 +7,16 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/imagelist"
+        android:layout_width="149dp"
+        android:layout_height="match_parent"
         app:srcCompat="@drawable/logo2" />
 
     <LinearLayout
-        android:layout_width="223dp"
+        android:layout_width="239dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="8dp">
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/nomTextView"
@@ -34,19 +34,15 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/noteTextView"
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/prixTextView"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_weight="1"
-        android:textSize="14sp" />
+
 
 </LinearLayout>
 
